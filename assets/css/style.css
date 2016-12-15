@@ -1,0 +1,54 @@
+* {
+  font-family: monospace;
+}
+
+h3 {
+  margin-bottom: 0px;
+}
+
+table.scroll {
+  border-spacing: 0;
+}
+
+table.scroll tbody,
+table.scroll thead { display: block; }
+
+thead tr th { 
+  height: 30px;
+  line-height: 30px;
+}
+
+table.scroll tbody {
+  height: 100px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+tbody { 
+  border-top: 1px solid black;
+  padding-top: 5px;
+}
+
+tbody td, thead th {
+  width: 100px;
+  padding-right: 20px;
+  text-align: center;
+}
+
+tbody td.date, thead th.date {
+  width: 180px;
+  text-align: left;
+}
+
+tbody td:last-child, thead th:last-child {
+  border-right: none;
+}
+
+::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}

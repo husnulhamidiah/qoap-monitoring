@@ -28,10 +28,11 @@ io.on('connection', function (socket) {
   socket.on('subscribe', function (topic) {
     Qoap.find({'topic': topic})
       .select('-_id')
-      .limit(20)
+      // .limit(20)
+      .sort({'date': 1})
       .exec(function (err, entities) {
         if (err) console.log(err)
-        console.log(entities.length)
+        // console.log(entities.length)
         entities.forEach(function (entity) {
           socket.emit(topic, entity)
         })
