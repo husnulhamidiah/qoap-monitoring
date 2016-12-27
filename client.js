@@ -1,10 +1,14 @@
+let env = process.env.NODE_ENV || 'development'
+let config = require('./config.json')[env]
 let socketClient = require('socket.io-client')
 // connect to middleware
-let client = socketClient.connect('http://192.168.33.11:3000', {reconnect: true})
+let socketUrl = 'http://' + config.socketHost + ':' + config.socketPort
+let client = socketClient.connect(socketUrl, {reconnect: true})
 
 let mongoose = require('mongoose')
 // coonnect to mongodb
-mongoose.connect('mongodb://192.168.33.11:27017/qoap-db')
+let mongoUrl = 'mongodb://' + config.mongoHost + ':' + config.mongoPort + '/' + config.mongoDB
+mongoose.connect(mongoUrl)
 
 let qoapSchema = mongoose.Schema({
   topic: String,

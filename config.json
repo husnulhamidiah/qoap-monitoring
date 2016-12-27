@@ -1,0 +1,16 @@
+{
+  "development": {
+    "mongoHost": "127.0.0.1",
+    "mongoPort": "27017",
+    "mongoDB": "qoap-db",
+    "socketHost": "127.0.0.1",
+    "socketPort": "3000"
+  },
+  "production": {
+    "mongoHost": "127.0.0.1",
+    "mongoPort": "27017",
+    "mongoDB": "qoap-db",
+    "socketHost": "127.0.0.1",
+    "socketPort": "3000"
+  }
+}
