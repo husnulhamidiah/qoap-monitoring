@@ -5,20 +5,37 @@ let server = require('http').Server(app)
 let io = require('socket.io')(server)
 let at = require('at-quotes')
 
+let env = process.env.NODE_ENV || 'development'
+let config = require('./config.json')[env]
+
 let socketClient = require('socket.io-client')
 // connect to middleware
-let client = socketClient.connect('http://192.168.33.11:3000', {reconnect: true})
+let socketUrl = 'http://' + config.socketHost + ':' + config.socketPort
+let client = socketClient.connect(socketUrl, {reconnect: true})
 
 let mongoose = require('mongoose')
 // coonnect to mongodb
-mongoose.connect('mongodb://192.168.33.11:27017/qoap-db')
+let mongoUrl = 'mongodb://' + config.mongoHost + ':' + config.mongoPort + '/' + config.mongoDB
+mongoose.connect(mongoUrl)
 
 let qoapSchema = mongoose.Schema({
+  protocol: String,
+  timestamp: String,
   topic: String,
-  humidity: { type: Number, min: 0, max: 100 },
-  temperature: { type: Number, min: 0, max: 100 },
-  sensorId: Number,
-  heap: Number,
+  sensor: {
+    type: String,
+    id: String,
+    ip: String,
+    module: String
+  },
+  humidity: {
+    value: { type: Number, min: 0, max: 100 },
+    unit: String
+  },
+  temperature: {
+    value: { type: Number, min: 0, max: 100 },
+    unit: String
+  },
   date: { type: Date, default: Date.now }
 })
 

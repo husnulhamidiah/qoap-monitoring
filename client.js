@@ -11,11 +11,23 @@ let mongoUrl = 'mongodb://' + config.mongoHost + ':' + config.mongoPort + '/' + 
 mongoose.connect(mongoUrl)
 
 let qoapSchema = mongoose.Schema({
+  protocol: String,
+  timestamp: String,
   topic: String,
-  humidity: { type: Number, min: 0, max: 100 },
-  temperature: { type: Number, min: 0, max: 100 },
-  sensorId: Number,
-  heap: Number,
+  sensor: {
+    type: String,
+    id: String,
+    ip: String,
+    module: String
+  },
+  humidity: {
+    value: { type: Number, min: 0, max: 100 },
+    unit: String
+  },
+  temperature: {
+    value: { type: Number, min: 0, max: 100 },
+    unit: String
+  },
   date: { type: Date, default: Date.now }
 })
 
