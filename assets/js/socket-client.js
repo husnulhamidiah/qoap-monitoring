@@ -1,7 +1,7 @@
 const smoothie = new SmoothieChart({ grid: { strokeStyle: 'rgb(125, 0, 0)', fillStyle: 'rgb(60, 0, 0)', lineWidth: 1, millisPerLine: 250, verticalSections: 6 }, maxValue: 100, minValue: 0 })
 smoothie.streamTo(document.getElementById('smoothieCanvas'), 60000)
 // connect to local ip address
-let socket = io.connect('http://127.0.0.1:8000')
+let socket = io.connect('http://192.168.33.11:8000')
 
 let field = document.getElementById('topic')
 let sendButton = document.getElementById('send')

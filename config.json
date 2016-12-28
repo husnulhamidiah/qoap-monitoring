@@ -3,7 +3,7 @@
     "mongoHost": "127.0.0.1",
     "mongoPort": "27017",
     "mongoDB": "qoap-db",
-    "socketHost": "127.0.0.1",
+    "socketHost": "10.34.8.56",
     "socketPort": "3000"
   },
   "production": {

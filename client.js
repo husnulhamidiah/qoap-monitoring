@@ -15,8 +15,8 @@ let qoapSchema = mongoose.Schema({
   timestamp: String,
   topic: String,
   sensor: {
-    type: String,
-    id: String,
+    tipe: String,
+    index: String,
     ip: String,
     module: String
   },
