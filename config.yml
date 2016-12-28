@@ -3,6 +3,10 @@ apps:
     name     : 'monitoring'
     watch    : true
     exec_mode: cluster
+  - script   : ./client.js
+    name     : 'client-monitoring'
+    watch    : true
+    exec_mode: cluster
     env    :
       NODE_ENV: development
     env_production:
